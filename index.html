@@ -69,21 +69,49 @@ Email: JoeLynn@gmail.com<br>
 Call or text the Joe Lynn Hotline:<br>
 <strong>253-JOE-LYNN (253-563-5966)</strong>
 </p>
-<!-- Paste this code where you want the counter to appear -->
- <!-- Paste this code where you want the counter to appear -->
-<div style="font-family: Arial; text-align: center; margin: 20px;">
-    <h3>Total Visitors:</h3>
-    <a href="https://hitwebcounter.com" target="_blank">
-        <img src="https://hitwebcounter.com" title="Free Counter" Alt="Visitor Counter" border="0" />
-    </a>
-</div>
-   
-<!-- hitwebcounter Code START -->
-<a href="https://www.hitwebcounter.com/word-counter" target="_blank" rel="noopener" title="Find Total Words">
-<img src="https://www.hitwebcounter.com/counter/counter.php?page=21513965&amp;style=0030&amp;nbdigits=5&amp;type=page" alt="Find Total Words" decoding="async" style="border:0;max-width:100%;height:auto;" />
-</a>
-<br />
-<a href="https://www.hitwebcounter.com/" target="_blank" rel="noopener" style="font-family:Geneva, Arial, Helvetica;font-size:11px;color:#85948C;text-decoration:underline;font-weight:em;">Visits</a>
-<!-- hitwebcounter Code END -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visitor Counter</title>
+    <style>
+        .counter-box {
+            font-family: sans-serif;
+            border: 2px solid #333;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="counter-box">
+        <h4>You have visited this page:</h4>
+        <h2><span id="visit-count">0</span> times</h2>
+    </div>
+
+    <script>
+        // Check if the "visits" key exists in local storage
+        let currentVisits = localStorage.getItem("visits");
+
+        if (currentVisits) {
+            // If it exists, convert to a number and add 1
+            currentVisits = parseInt(currentVisits) + 1;
+        } else {
+            // If it is their first time, start at 1
+            currentVisits = 1;
+        }
+
+        // Save the new number back to local storage
+        localStorage.setItem("visits", currentVisits);
+
+        // Display the number on the screen
+        document.getElementById("visit-count").innerText = currentVisits;
+    </script>
+
+</body>
+</html>
 </body>
 </html>
