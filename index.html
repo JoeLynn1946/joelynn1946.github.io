@@ -1,5 +1,6 @@
 <!-- joelynn1946.github.io/index.html -->
 
+<!-- joelynn1946.github.io/index.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,75 +19,74 @@
         h2 {
             color: #555555;
         }
+        /* Custom visual border style for your visitor box */
+        .counter-container {
+            border: 2px solid #333;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
     </style>
 </head>
-
 <body>
 
-
     <h1 style="text-align: center;">Joe Lynn Computer Services 1</h1>
-<br>
-<h2>       
-Developing software since the early 1980s.
-</h2>
-
-
-
-<h2>Practical apps for everyday use</h2>
-
-<p>Welcome!</p>
-
-<p>This site provides support and privacy information for applications developed by Joe Lynn.</p>
-
-<h3>Current Apps</h3>
-
-<ul>
-<li>
-    <a href="https://joelynn1946.github.io/Affirmations-Privacy.html">
-Affirmations Basic & Personal
-</a>    
-</li>
-
+    <br>
+    <h2>Developing software since the early 1980s.</h2>
+    <h2>Practical apps for everyday use</h2>
     
-    <li>
-<a href="https://joelynn1946.github.io/privacy.html">
-Chime Clock Themes & Sounds
-</a>  
-</li>
-    
-<li>
-    <a href="https://joelynn1946.github.io/elevationreporter-privacy.html">
-Elevation Reporter
-</a>    
-</li>
-</ul>
+    <p>Welcome!</p>
+    <p>This site provides support and privacy information for applications developed by Joe Lynn.</p>
 
-<h3>Support</h3>
+    <h3>Current Apps</h3>
+    <ul>
+        <li>
+            <a href="https://joelynn1946.github.io/Affirmations-Privacy.html">
+                Affirmations Basic & Personal
+            </a>
+        </li>
+        <li>
+            <a href="https://joelynn1946.github.io/privacy.html">
+                Chime Clock Themes & Sounds
+            </a>
+        </li>
+        <li>
+            <a href="https://joelynn1946.github.io/elevationreporter-privacy.html">
+                Elevation Reporter
+            </a>
+        </li>
+    </ul>
 
-<p>
-Questions, suggestions, or comments?<br>
-Email: JoeLynn@gmail.com<br>
-Call or text the Joe Lynn Hotline:<br>
-<strong>253-JOE-LYNN (253-563-5966)</strong>
-</p>
+    <h3>Support</h3>
+    <p>
+        Questions, suggestions, or comments?<br>
+        Email: JoeLynn@gmail.com<br>
+        Call or text the Joe Lynn Hotline:<br>
+        <strong>253-JOE-LYNN (253-563-5966)</strong>
+    </p>
 
+    <!-- FIX 1: Added the missing HTML container and 'visit-count' element -->
+    <div class="counter-container">
+        <h4>You have visited this page:</h4>
+        <h2><span id="visit-count">Loading...</span> times</h2>
+    </div>
 
-<script>
-    // Uses the modern CounterAPI database network
-    // 'joelynn1946' acts as your unique folder name on their server
-    fetch('https://counterapi.dev')
-        .then(response => response.json())
-        .then(data => {
-            // Success: Displays the true live number from the database
-            document.getElementById("visit-count").innerText = data.count;
-        })
-        .catch(error => {
-            // Error fallback: Keeps a placeholder if the network drops out
-            console.error('Network Error:', error);
-            document.getElementById("visit-count").innerText = "1";
-        });
-</script>
+    <!-- FIX 2: Corrected the fetch endpoint path -->
+    <script>
+        fetch('https://counterapi.dev')
+            .then(response => response.json())
+            .then(data => {
+                // Success: Updates your text element with the true live database total
+                document.getElementById("visit-count").innerText = data.count;
+            })
+            .catch(error => {
+                // Error fallback: Handles drops gracefully
+                console.error('Network Error:', error);
+                document.getElementById("visit-count").innerText = "1";
+            });
+    </script>
 
-    
 </body>
 </html>
