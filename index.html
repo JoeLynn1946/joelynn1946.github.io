@@ -93,25 +93,18 @@ Call or text the Joe Lynn Hotline:<br>
     </div>
 
     <script>
-        // Check if the "visits" key exists in local storage
-        let currentVisits = localStorage.getItem("visits");
-
-        if (currentVisits) {
-            // If it exists, convert to a number and add 1
-            currentVisits = parseInt(currentVisits) + 1;
-        } else {
-            // If it is their first time, start at 1
-            currentVisits = 1;
-        }
-
-        // Save the new number back to local storage
-        localStorage.setItem("visits", currentVisits);
-
-        // Display the number on the screen
-        document.getElementById("visit-count").innerText = currentVisits;
-    </script>
-
-</body>
-</html>
+    // Fetches the global total from a free cloud counter database
+    // "joelynn1946" is your unique workspace namespace
+    fetch('https://counterapi.dev')
+        .then(response => response.json())
+        .then(data => {
+            // Replaces the number on your page with the true global count
+            document.getElementById("visit-count").innerText = data.count;
+        })
+        .catch(error => {
+            console.error('Error updating counter:', error);
+            document.getElementById("visit-count").innerText = "1";
+        });
+</script>
 </body>
 </html>
