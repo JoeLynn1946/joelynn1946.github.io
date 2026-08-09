@@ -69,13 +69,22 @@ Email: JoeLynn@gmail.com<br>
 Call or text the Joe Lynn Hotline:<br>
 <strong>253-JOE-LYNN (253-563-5966)</strong>
 </p>
-<!-- hitwebcounter Code START -->
-<a href="https://www.hitwebcounter.com/character-counter" target="_blank" rel="noopener" title="Total Characters">
-<img src="https://www.hitwebcounter.com/counter/counter.php?page=21513966&amp;style=0030&amp;nbdigits=5&amp;type=page" alt="Total Characters" decoding="async" style="border:0;max-width:100%;height:auto;" />
-</a>
-<br />
-<a href="https://www.hitwebcounter.com/" target="_blank" rel="noopener" style="font-family:Arial, Helvetica, sans-serif;font-size:10px;color:#636066;text-decoration:underline;font-weight:strong;">PageHits</a>
-<!-- hitwebcounter Code END -->
+<div style="border: 2px solid #333; padding: 15px; width: 200px; text-align: center; border-radius: 8px;">
+    <h4>Total Visitors:</h4>
+    <h2 id="visit-count">Loading...</h2>
+</div>
+
+<script>
+    // A completely text-based counter api with no UI links or ads
+    fetch('https://countapi.xyz')
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('visit-count').innerText = data.value;
+        })
+        .catch(() => {
+            document.getElementById('visit-count').innerText = "1";
+        });
+</script>
 
     
 </body>
