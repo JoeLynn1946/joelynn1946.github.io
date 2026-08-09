@@ -75,14 +75,18 @@ Call or text the Joe Lynn Hotline:<br>
 </div>
 
 <script>
-    // A completely text-based counter api with no UI links or ads
-    fetch('https://countapi.xyz')
-        .then(res => res.json())
+    // Uses the modern CounterAPI database network
+    // 'joelynn1946' acts as your unique folder name on their server
+    fetch('https://counterapi.dev')
+        .then(response => response.json())
         .then(data => {
-            document.getElementById('visit-count').innerText = data.value;
+            // Success: Displays the true live number from the database
+            document.getElementById("visit-count").innerText = data.count;
         })
-        .catch(() => {
-            document.getElementById('visit-count').innerText = "1";
+        .catch(error => {
+            // Error fallback: Keeps a placeholder if the network drops out
+            console.error('Network Error:', error);
+            document.getElementById("visit-count").innerText = "1";
         });
 </script>
 
