@@ -75,18 +75,23 @@
 
     <!-- FIX 2: Corrected the fetch endpoint path -->
     <script>
-        fetch('https://counterapi.dev')
-            .then(response => response.json())
-            .then(data => {
-                // Success: Updates your text element with the true live database total
-                document.getElementById("visit-count").innerText = data.count;
-            })
-            .catch(error => {
-                // Error fallback: Handles drops gracefully
-                console.error('Network Error:', error);
-                document.getElementById("visit-count").innerText = "1";
-            });
-    </script>
+    // Connects to a free public tracking node
+    // "joelynn1946-homepage" establishes your unique global storage key
+    fetch('https://millivolt.org', {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Success: Displays the actual global total across all devices
+        document.getElementById("visit-count").innerText = data.count;
+    })
+    .catch(error => {
+        // Fallback: Prevents visual broken fields if offline
+        console.error('Counter error:', error);
+        document.getElementById("visit-count").innerText = "1";
+    });
+</script>
+
 
 </body>
 </html>
